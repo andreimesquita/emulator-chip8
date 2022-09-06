@@ -39,3 +39,13 @@ add_custom_command(
         ${CMAKE_BINARY_DIR}/chip8_core_lib.lib # the file to copy
         ${LIBS_DIR}/chip8/chip8_core.lib       # the destination
 )
+
+# add executable for SDL2 integration
+add_executable(${PROJECT_NAME}
+        # SDL Front-end
+        ${PROJECT_SOURCE_DIR}/main.cpp
+        ${SOURCE_DIR}/sdl/emulator.cpp
+        ${SOURCE_DIR}/sdl/beeper.cpp
+)
+# Link SDL2 library
+target_link_libraries(${PROJECT_NAME} SDL2/SDL2main SDL2/SDL2 chip8/chip8_core)
