@@ -1,4 +1,4 @@
-#include "stack.h"
+#include "chip8/hardware/memory/stack.h"
 
 #include <cassert>
 

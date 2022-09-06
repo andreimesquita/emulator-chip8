@@ -5,7 +5,8 @@
 
 struct Screen
 {
-    bool pixels[CHIP8_SCREEN_HEIGHT][CHIP8_SCREEN_WIDTH];
+    bool Pixels[CHIP8_SCREEN_HEIGHT][CHIP8_SCREEN_WIDTH] {};
+    bool Dirty = false;
 
     void clear();
     void set(uint32_t x, uint32_t y);

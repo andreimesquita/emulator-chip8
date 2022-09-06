@@ -5,7 +5,7 @@
 
 #include "chip8/constants.h"
 
-struct VirtualKeyboard
+struct Keyboard
 {
     void SetKeyDown(int vKey);
     void SetKeyUp(int vKey);
