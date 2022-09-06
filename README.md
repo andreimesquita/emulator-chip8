@@ -1,0 +1,10 @@
+# emulator-chip8
+This is my first ever created game console emulator
+
+# Samples
+
+## Space Invaders
+![image](https://user-images.githubusercontent.com/3640897/188718108-db0a75df-fadc-454e-af02-4f46d1d9167c.png)
+
+## Pong
+![image](https://user-images.githubusercontent.com/3640897/188718445-f6002bf9-eafd-4666-91bc-3c9de17c49be.png)
