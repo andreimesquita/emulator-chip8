@@ -1,4 +1,4 @@
-#include "cartridge.h"
+#include "chip8/cartridge/cartridge.h"
 
 Cartridge::~Cartridge() {
     clear();

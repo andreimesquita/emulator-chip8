@@ -3,7 +3,7 @@
 #include <cstdint>
 
 // window
-#define EMULATOR_WINDOW_TITLE "Chip8 Emulator"
+#define EMULATOR_WINDOW_TITLE "CHIP-8 Emulator"
 
 // Memory
 #define CHIP8_PROGRAM_LOAD_ADDRESS 0x200

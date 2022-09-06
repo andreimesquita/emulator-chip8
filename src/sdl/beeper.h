@@ -1,6 +1,6 @@
 #pragma once
 
-#include <SDL.h>
+#include "SDL2/SDL.h"
 
 // This class is a singleton, which is bad practice. However, this makes the
 // implementation more straightforward.

@@ -11,13 +11,16 @@ static void assertPixelInScreenBounds(const uint32_t x, const uint32_t y)
 void Screen::set(uint32_t x, uint32_t y)
 {
     assertPixelInScreenBounds(x, y);
-    pixels[y][x] = true;
+    if (!Pixels[y][x]) {
+        Pixels[y][x] = true;
+        Dirty = true;
+    }
 }
 
 bool Screen::isSet(uint32_t x, uint32_t y) const
 {
     assertPixelInScreenBounds(x, y);
-    return pixels[y][x];
+    return Pixels[y][x];
 }
 
 bool Screen::drawSprite(const uint32_t x, const uint32_t y, const uint8_t* sprite, const int numBytes)
@@ -32,7 +35,9 @@ bool Screen::drawSprite(const uint32_t x, const uint32_t y, const uint8_t* sprit
                 continue;
             }
 
-            bool& pixel = pixels[(ly+y) % CHIP8_SCREEN_HEIGHT][(lx+x) % CHIP8_SCREEN_WIDTH];
+            Dirty = true;
+
+            bool& pixel = Pixels[(ly + y) % CHIP8_SCREEN_HEIGHT][(lx + x) % CHIP8_SCREEN_WIDTH];
             pixelCollision |= pixel;
             pixel ^= true;
         }
@@ -42,5 +47,6 @@ bool Screen::drawSprite(const uint32_t x, const uint32_t y, const uint8_t* sprit
 
 void Screen::clear()
 {
-    memset(&pixels, 0, sizeof(pixels));
+    memset(&Pixels, 0, sizeof(Pixels));
+    Dirty = true;
 }
