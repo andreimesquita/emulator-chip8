@@ -49,3 +49,8 @@ add_executable(${PROJECT_NAME}
 )
 # Link SDL2 library
 target_link_libraries(${PROJECT_NAME} SDL2/SDL2main SDL2/SDL2 chip8/chip8_core)
+
+# Copy all header files into the 'include' directories, keeping the folder structure
+file(COPY ${SOURCE_DIR}/chip8/ DESTINATION ${INCLUDE_DIR}/chip8
+        PATTERN "*/*.cpp" EXCLUDE
+)
