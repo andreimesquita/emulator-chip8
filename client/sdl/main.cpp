@@ -1,7 +1,7 @@
 #include <cstdio>
 #include <cassert>
 
-#include "sdl/emulator.h"
+#include "emulator.h"
 
 int main (int argc, char* argv[]) {
     assert(argc >= 2);

@@ -57,12 +57,12 @@ void Emulator::Run(char* filePath) {
         }
 
         // draw (if needed)
-        if (_console.Hardware.Screen.Dirty) {
+        if (_console.Screen.Dirty) {
             Draw();
         }
 
         // play sound
-        if (_console.Hardware.Flags.Sound) {
+        if (_console.Cpu.Flags.Sound) {
             Beeper::play();
         } else {
             Beeper::stop();
@@ -116,7 +116,7 @@ void Emulator::Draw() const {
 
     for (uint32_t x = 0; x < CHIP8_SCREEN_WIDTH; x++) {
         for (uint32_t y = 0; y < CHIP8_SCREEN_HEIGHT; y++) {
-            if (_console.Hardware.Screen.isSet(x, y)) {
+            if (_console.Screen.IsSet(x, y)) {
                 tempRect.x = (x * Config::Screen::SizeMultiplier) + Config::Screen::Padding;
                 tempRect.y = (y * Config::Screen::SizeMultiplier) + Config::Screen::Padding;
 
@@ -153,7 +153,7 @@ void Emulator::ReadInput() {
                 const SDL_Keycode keycode = event.key.keysym.sym;
                 uint8_t vKey;
                 if (FindCorrespondingVirtualKey(keycode, vKey)) {
-                    _console.Hardware.Keyboard.SetKeyDown(vKey);
+                    _console.Keyboard.SetKeyDown(vKey);
                 }
             }
                 break;
@@ -162,7 +162,7 @@ void Emulator::ReadInput() {
                 const SDL_Keycode keycode = event.key.keysym.sym;
                 uint8_t vKey;
                 if (FindCorrespondingVirtualKey(keycode, vKey)) {
-                    _console.Hardware.Keyboard.SetKeyUp(vKey);
+                    _console.Keyboard.SetKeyUp(vKey);
                 }
             }
                 break;

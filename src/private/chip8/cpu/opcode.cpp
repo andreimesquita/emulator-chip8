@@ -1,4 +1,4 @@
-#include "chip8/hardware/cpu/opcode.h"
+#include "chip8/cpu/opcode.h"
 
 Opcode::Opcode(const uint16_t code) : Code(code) { }
 

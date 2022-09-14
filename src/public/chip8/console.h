@@ -4,8 +4,11 @@
 
 #include "constants.h"
 #include "chip8/cartridge/cartridge.h"
-#include "chip8/hardware/hardware.h"
-#include "chip8/hardware/cpu/cpu.h"
+#include "chip8/cpu/cpu.h"
+#include "chip8/memory/memory.h"
+#include "chip8/memory/stack.h"
+#include "chip8/IO/keyboard.h"
+#include "chip8/IO/screen.h"
 
 struct Console
 {
@@ -15,6 +18,9 @@ struct Console
     void InsertCartridge(const Cartridge& outCartridge);
     void Cycle();
 
-    Hardware Hardware {};
+    Memory Memory {};
+    Stack Stack {};
+    Keyboard Keyboard {};
+    Screen Screen {};
     CPU Cpu {};
 };

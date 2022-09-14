@@ -12,5 +12,5 @@ struct Stack
     uint8_t SP = 0u;
 
 private:
-    uint16_t stack[CHIP8_STACK_SIZE] {};
+    uint16_t stack[CHIP8_MEMORY_STACK_SIZE] {};
 };

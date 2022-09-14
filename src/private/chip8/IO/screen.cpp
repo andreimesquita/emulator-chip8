@@ -1,29 +1,32 @@
-#include "screen.h"
+#include "chip8/IO/screen.h"
+
 #include <cassert>
 #include <cstring>
 
-static void assertPixelInScreenBounds(const uint32_t x, const uint32_t y)
+#include "chip8/constants.h"
+
+static void AssertPixelInScreenBounds(const uint32_t x, const uint32_t y)
 {
     assert(x >= 0u && x < CHIP8_SCREEN_WIDTH
         && y >= 0u && y < CHIP8_SCREEN_HEIGHT);
 }
 
-void Screen::set(uint32_t x, uint32_t y)
+void Screen::Set(uint32_t x, uint32_t y)
 {
-    assertPixelInScreenBounds(x, y);
+    AssertPixelInScreenBounds(x, y);
     if (!Pixels[y][x]) {
         Pixels[y][x] = true;
         Dirty = true;
     }
 }
 
-bool Screen::isSet(uint32_t x, uint32_t y) const
+bool Screen::IsSet(uint32_t x, uint32_t y) const
 {
-    assertPixelInScreenBounds(x, y);
+    AssertPixelInScreenBounds(x, y);
     return Pixels[y][x];
 }
 
-bool Screen::drawSprite(const uint32_t x, const uint32_t y, const uint8_t* sprite, const int numBytes)
+bool Screen::DrawSprite(const uint32_t x, const uint32_t y, const uint8_t* sprite, const int numBytes)
 {
     bool pixelCollision = false;
     for (int ly = 0; ly < numBytes; ly++) {
@@ -45,7 +48,7 @@ bool Screen::drawSprite(const uint32_t x, const uint32_t y, const uint8_t* sprit
     return pixelCollision;
 }
 
-void Screen::clear()
+void Screen::Clear()
 {
     memset(&Pixels, 0, sizeof(Pixels));
     Dirty = true;

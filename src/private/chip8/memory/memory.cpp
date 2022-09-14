@@ -1,4 +1,4 @@
-#include "chip8/hardware/memory/memory.h"
+#include "chip8/memory/memory.h"
 
 void Memory::WriteBuffer(const uint16_t address, const uint8_t* source, const size_t size) {
     memcpy(&memory[address], source, size);

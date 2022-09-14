@@ -1,15 +1,17 @@
-#include "keyboard.h"
+#include "chip8/IO/keyboard.h"
 
 #include <cassert>
 
-static void assertKeyInBounds(int vKey)
+#include "chip8/constants.h"
+
+static void AssertKeyInBounds(int vKey)
 {
     assert(vKey >= 0 && vKey < CHIP8_KEYS_SIZE);
 }
 
 void Keyboard::SetKeyDown(int vKey)
 {
-    assertKeyInBounds(vKey);
+    AssertKeyInBounds(vKey);
     _keyboard[vKey] = true;
 
     if (OnKeyDownEvent != nullptr) {
@@ -19,12 +21,12 @@ void Keyboard::SetKeyDown(int vKey)
 
 void Keyboard::SetKeyUp(int vKey)
 {
-    assertKeyInBounds(vKey);
+    AssertKeyInBounds(vKey);
     _keyboard[vKey] = false;
 }
 
 bool Keyboard::IsKeyDown(int vKey) const
 {
-    assertKeyInBounds(vKey);
+    AssertKeyInBounds(vKey);
     return _keyboard[vKey];
 }
