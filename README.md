@@ -1,5 +1,5 @@
 # emulator-chip8
-This is my first ever created game console emulator
+It is an emulator for the CHIP 8 gaming platform developed in C++14.
 
 # Samples
 
