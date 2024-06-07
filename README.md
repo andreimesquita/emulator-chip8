@@ -1,5 +1,5 @@
 # emulator-chip8
-It is an emulator for the CHIP 8 gaming platform developed in C++14.
+It is an emulator for the CHIP 8 gaming platform developed in C++14 and SDL.
 
 # Samples
 
